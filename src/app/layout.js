@@ -1,6 +1,7 @@
 import "./globals.css";
 import TopProgress from "@/components/TopProgress";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "Anton Krat — Portfolio",
@@ -18,24 +19,7 @@ export default function RootLayout({ children }) {
       <body className="flex min-h-screen flex-col bg-neutral-950 text-neutral-50">
         {/* Navbar */}
         <TopProgress />
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
-          <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
-            <Link className="font-semibold tracking-tight" href="/">
-              Anton Krat
-            </Link>
-            <nav className="hidden sm:flex items-center gap-6 text-sm text-neutral-300">
-              <Link className="hover:text-white" href="/#works">
-                Works
-              </Link>
-              <Link className="hover:text-white" href="/about">
-                About
-              </Link>
-              <Link className="hover:text-white" href="/contact">
-                Contact
-              </Link>
-            </nav>
-          </div>
-        </header>
+     <Navbar />
 
         {/* Контент */}
         <main className="flex-1">{children}</main>

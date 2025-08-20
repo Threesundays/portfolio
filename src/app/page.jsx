@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 
-// ТВОИ РАБОТЫ (оставь свои пути)
 const WORKS = [
   { id: "w1", src: "/images/works/work-01.webp" },
   { id: "w2", src: "/images/works/work-02.webp" },
@@ -22,8 +21,7 @@ const WORKS = [
 ];
 
 export default function Page() {
-  const youtubeUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-  const videoSrc = "/showreel.mp4";
+  const youtubeUrl = "https://youtu.be/OQ_ishCsANA";
   const poster = "/poster.jpg";
 
   // ЛАЙТБОКС
@@ -52,37 +50,40 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-50">
-      {/* Navbar */}
+      {/* Hero */}
+      <section className="relative">
+        <div className="relative w-full" style={{ aspectRatio: "2.35 / 1" }}>
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            poster={poster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          >
+            {/* Вариант для десктопа */}
+            <source src="/showreel.mp4" media="(min-width: 768px)" type="video/mp4" />
+            {/* Вариант для мобилок */}
+            <source src="/showreel-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
+          </video>
 
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-neutral-950/20 to-transparent" />
 
-      {/* Hero (16:9 контейнер) */}
-     <section className="relative">
-  <div className="relative w-full" style={{ aspectRatio: "2.35 / 1" }}>
-    <video
-      className="absolute inset-0 h-full w-full object-cover"
-      src={videoSrc}
-      poster={poster}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="metadata"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-neutral-950/20 to-transparent" />
-
-    {/* кнопка YouTube */}
-    <div className="absolute bottom-4 right-4">
-      <a
-        href={youtubeUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur hover:bg-white/20"
-      >
-        ▶ Смотреть шоурил
-      </a>
-    </div>
-  </div>
-</section>
+          {/* кнопка YouTube */}
+          <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4">
+  <a
+    href={youtubeUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10
+               px-2 py-1 text-[10px] md:px-3 md:py-1.5 md:text-xs font-medium backdrop-blur hover:bg-white/20"
+  >
+    ▶ Смотреть шоурил
+  </a>
+</div>
+        </div>
+      </section>
 
       {/* Работы */}
       <section id="works" className="w-full py-12">
@@ -124,8 +125,6 @@ export default function Page() {
           </div>
         </div>
       )}
-
-      
     </main>
   );
 }
